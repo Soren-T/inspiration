@@ -1,11 +1,11 @@
 import { Link } from "gatsby"
 import React from "react"
-import DarkModeToggle from "react-dark-mode-toggle"
+// import DarkModeToggle from "react-dark-mode-toggle"
 import { Footer, SignupForm } from "../components"
-import { useDarkMode } from "../hooks"
+// import { useDarkMode } from "../hooks"
 
 export const LayoutFull = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useDarkMode()
+  // const [isDarkMode, setIsDarkMode] = useDarkMode()
 
   return (
     <div className="bg-gray-100 dark:bg-gray-900">
@@ -17,12 +17,12 @@ export const LayoutFull = ({ children }) => {
             </Link>
 
             <div className="absolute top-0 right-0">
-              <DarkModeToggle
+              {/* <DarkModeToggle
                 onChange={setIsDarkMode}
                 checked={isDarkMode}
                 size={64}
                 speed={1.75}
-              />
+              /> */}
             </div>
           </div>
         </div>

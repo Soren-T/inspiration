@@ -34,8 +34,7 @@ export const Feature = ({ label, value }) => {
       </h4>
 
       <div
-        className={`font-medium text-blue-800 dark:text-blue-400 text-base leading-loose mb-4`}
-      >
+        className={`font-medium text-blue-800 dark:text-blue-400 text-base leading-loose mb-4`}>
         {value}
       </div>
     </>

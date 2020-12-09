@@ -7,6 +7,7 @@ import { LayoutFull } from "./LayoutFull"
 import { LayoutModal } from "./LayoutModal"
 
 export const Layout = ({ children, navigation }) => {
+  console.log('navigation', navigation)
   return (
     <ModalRoutingContext.Consumer>
       {({ modal, closeTo }) =>

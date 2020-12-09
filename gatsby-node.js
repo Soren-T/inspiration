@@ -1,45 +1,46 @@
-require("dotenv").config()
-const path = require(`path`)
+require("dotenv").config();
+const path = require(`path`);
 const { AIRTABLE_TABLE_NAME: tableName } = process.env
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async function ({ graphql, actions }) {
   const { createPage } = actions;
 
-  return new Promise((resolve, reject) => {
-    const component = path.resolve(
-      `./src/templates/blog-post-template.jsx`
-    );
+  const component = path.resolve(
+    `./src/templates/blog-post-template.jsx`
+  );
 
-    resolve(
-      graphql(`
-        {
-          allAirtable {
-            edges {
-              node {
-                data {
-                  slug
-                }
-              }
+  await graphql(`
+    {
+      allAirtable {
+        edges {
+          node {
+            data {
+              slug
             }
           }
-        }        
-      `)
-    ).then(result => {
-      if (result.error) {
-        reject(result.error);
+        }
       }
-
-      result.data.allAirtable.edges.forEach(edge => {
-        const { data: { slug } } = edge.node;
-        createPage({
-          path: `${slug}`,
-          component: slash(blogPostTemplate),
-          context: {
-            slug: slug
-          }
-        });
+    }        
+  `).then(({  data }) => {    
+    data.allAirtable.edges.forEach(edge => {
+      const { data: { slug } } = edge.node;
+      createPage({
+        path: `${slug}`,
+        component,
+        context: { slug }
       });
-    })
+    });
+  });
+}
 
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage } = actions;
+
+  createPage({
+    ...page,
+    context: {
+      ...page.context,
+      tableName,
+    },
   })
 }

@@ -1,26 +1,31 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Img from "gatsby-image";
-import unified from 'unified';
-import markdown from 'remark-parse';
-import html from 'remark-html';
+import ReactMarkdown from 'react-markdown'
+import gfm from 'remark-gfm'
 
-import { Feature, SiteMetadata } from "../components";
+import { SiteMetadata } from "../components";
 import { useModal } from "../context";
 import { Layout } from "../layouts/Layout";
 
 export default (props) => {
-  const { data, location: { state} } = props;
-  const navigation = state && state.navigation || null;
+  const { data, location: { state } } = props;
+  console.log('props', props.location);
+  const navigation = (state && state.navigation) || null;
   const {
-    airtable: {
-      title,
-      author,
-      image,
-      PostMarkdown
+    airtable: { 
+      data: {
+        title,
+        author,
+        image,
+        summary,
+        PostMarkdown
+      }
     }
   } = data;
   const { modal } = useModal();
+
+  console.log('props', props);
+  console.log('image', image)
 
   return (
     <Layout navigation={navigation}>
@@ -35,16 +40,11 @@ export default (props) => {
           </p>
           <div className="flex flex-wrap">
             <div className="w-full pb-4 lg:w-3/5 lg:pr-4 lg:pb-0">
-              <Img src={image[0].url} alt={name} />
+              <img src={image[0].url} alt={title} />
             </div>
-            <div
-              className="w-full lg:w-2/5 lg:pl-4"
-              dangerouslySetInnerHTML={{
-                __html: unified()
-                  .use(markdown)
-                  .use(html)
-                  .processSync(post.PostMarkdown)
-              }} />
+            <ReactMarkdown plugins={[gfm]}>
+              {PostMarkdown}
+            </ReactMarkdown>
           </div>
         </div>
       </article>
