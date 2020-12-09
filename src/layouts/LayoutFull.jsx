@@ -15,15 +15,6 @@ export const LayoutFull = ({ children }) => {
             <Link to="/" className="inline-block">
               <img alt="Logo" src="/logo.svg" />
             </Link>
-
-            <div className="absolute top-0 right-0">
-              {/* <DarkModeToggle
-                onChange={setIsDarkMode}
-                checked={isDarkMode}
-                size={64}
-                speed={1.75}
-              /> */}
-            </div>
           </div>
         </div>
       </header>

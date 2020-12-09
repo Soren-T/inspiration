@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import ReactMarkdown from 'react-markdown'
-import gfm from 'remark-gfm'
+import { Remarkable } from "remarkable";
 
 import { SiteMetadata } from "../components";
 import { useModal } from "../context";
@@ -9,7 +8,6 @@ import { Layout } from "../layouts/Layout";
 
 export default (props) => {
   const { data, location: { state } } = props;
-  console.log('props', props.location);
   const navigation = (state && state.navigation) || null;
   const {
     airtable: { 
@@ -23,9 +21,8 @@ export default (props) => {
     }
   } = data;
   const { modal } = useModal();
-
-  console.log('props', props);
-  console.log('image', image)
+  const parser = new Remarkable();
+  const html = parser.render(PostMarkdown);
 
   return (
     <Layout navigation={navigation}>
@@ -42,9 +39,7 @@ export default (props) => {
             <div className="w-full pb-4 lg:w-3/5 lg:pr-4 lg:pb-0">
               <img src={image[0].url} alt={title} />
             </div>
-            <ReactMarkdown plugins={[gfm]}>
-              {PostMarkdown}
-            </ReactMarkdown>
+            <div dangerouslySetInnerHTML={{ __html: html }} />
           </div>
         </div>
       </article>

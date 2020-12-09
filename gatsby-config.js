@@ -46,6 +46,18 @@ module.exports = {
         },
       },
     },
+    // {
+    //   resolve: "gatsby-transformer-remark",
+    //   options: {
+    //     plugins: [{
+    //       resolve: "gatsby-remark-component",
+    //       options: {
+    //         components: ["blog-post-template"],
+    //         verbose: true
+    //       }
+    //     }]
+    //   }
+    // },
     {
       resolve: `gatsby-source-airtable`,
       options: {

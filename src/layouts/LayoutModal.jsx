@@ -61,8 +61,7 @@ export const LayoutModal = ({ children, closeTo, navigation = {} }) => {
               asModal
               className="inline-block w-10 h-10 px-2 text-white dark:text-blue-300 hover:text-blue-400 dark:hover:text-blue-200"
               state={{ navigation: { current: current - 1, items } }}
-              to={previous}
-            >
+              to={previous}>
               <FaAngleLeft className="w-full h-full fill-current transition-colors duration-200" />
             </Link>
           )}
@@ -76,8 +75,7 @@ export const LayoutModal = ({ children, closeTo, navigation = {} }) => {
               asModal
               className="inline-block w-10 h-10 px-2 text-white dark:text-blue-300 hover:text-blue-400 dark:hover:text-blue-200"
               state={{ navigation: { current: current + 1, items } }}
-              to={next}
-            >
+              to={next}>
               <FaAngleRight className="w-full h-full fill-current transition-colors duration-200" />
             </Link>
           )}
@@ -85,8 +83,7 @@ export const LayoutModal = ({ children, closeTo, navigation = {} }) => {
       </div>
       <button
         className="absolute top-0 right-0 m-3 lg:m-6 focus:outline-none"
-        onClick={closeModal}
-      >
+        onClick={closeModal}>
         <FaTimes className="w-8 h-8 fill-current text-white dark:text-blue-300 hover:text-blue-400 dark:hover:text-blue-200 transition-colors duration-200" />
       </button>
     </div>
