@@ -2,9 +2,9 @@ import { useEffect } from "react"
 import { useLocalStorage, useMedia } from "./index"
 
 export function useDarkMode() {
-  if (typeof window === "undefined") {
-    return [false, () => void 0]
-  }
+  // if (typeof window === "undefined") {
+  //   return [false, () => void 0]
+  // }
 
   const [enabledState, setEnabledState] = useLocalStorage("dark-mode-enabled")
   const prefersDarkMode = usePrefersDarkMode()

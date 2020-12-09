@@ -3,13 +3,13 @@ require("dotenv").config()
 module.exports = {
   siteMetadata: {
     links: {
-      contact: "mailto:contact@me.com",
+      contact: "mailto:sorenct04@gmail.com",
       facebook: "https://www.facebook.com",
       linkedin: "https://www.linkedin.com",
       twitter: "https://www.twitter.com",
     },
     locale: "en",
-    title: "Travel destinations",
+    title: "Gain Inspiration",
   },
   plugins: [
     {
@@ -53,8 +53,8 @@ module.exports = {
         tables: [
           {
             baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: process.env.AIRTABLE_TABLE_NAME,
-            mapping: { image: "fileNode" },
+            tableName: 'CMS',
+            queryName: ''
           },
         ],
       },
