@@ -3,10 +3,9 @@ import React, { useEffect, useState } from "react";
 export const Filter = ({ filterCards, tags }) => {
   const [activeTags, setActiveTags] = useState([]);
 
-  // useEffect(() => {
-  //   console.log('FILTER');
-  //   filterCards(activeTags);
-  // }, [activeTags, filterCards]);
+  useEffect(() => {
+    filterCards(activeTags);
+  }, [activeTags, filterCards]);
 
   const colors = [
     'red',
@@ -27,17 +26,17 @@ export const Filter = ({ filterCards, tags }) => {
 
   return (
     <div className="container text-center">
-      <h3 className="text-lg lg:text-xl font-bold text-blue-500 tracking-tight">
+      <h3 className="text-lg lg:text-xl font-bold text-blue-500 tracking-tight pb-2">
         Select a tag to filter the articles below
       </h3>
       {(tags || []).map((t, i) => {
-        const colorIndex = i > colors.length ? i % colors.length : i;
+        const colorIndex = i > colors.length - 1 ? i % colors.length - 1 : i;
         const color = colors[colorIndex];
-        const active = activeTags.indexOf(t) !== -1;
+        const active = activeTags.indexOf(t.tag) !== -1;
         return (
           <button
             key={t.ID}
-            onClick={() => addRemoveTag(active, t)}
+            onClick={() => addRemoveTag(active, t.tag)}
             className={`
               border border-${color}-500 bg-${active ? `${color}-500` : 'white'}
               text-${active ? 'white' : `${color}-500`} rounded-md px-4 py-2 m-2 transition duration-100

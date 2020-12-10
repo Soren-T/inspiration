@@ -6,6 +6,7 @@ import { Layout } from "../layouts/Layout";
 export default ({ data }) => {
   const { edges: items } = data.allAirtable;
   const flattened = items.map(p => p.node.data);
+  console.log("flat data", flattened)
   const cards = flattened.filter(i => i.slug);
   const tags = flattened.filter(i => i.tag);
 
@@ -32,7 +33,7 @@ export const query = graphql`
             title
             summary
             PostMarkdown
-            Tags
+            tag__from_Tags_
             date
             image {
               url

@@ -6,24 +6,22 @@ export const Card = (props) => {
     slug,
     title,
     summary,
-    image,
-    navigation
+    image
   } = props;
 
   return (
     <div className="bg-white h-full shadow-sm rounded-md overflow-hidden hover:bg-blue-100">
-      <Link
-        state={{ navigation }}
-        to={`/${slug}`}
-        asModal>
+      <Link to={`/${slug}`}>
         <div className="divide-y divide-gray-200 divide-solid">
           <div className="bg-blue-300">
-            <img src={image[0].url} alt={title} />
+            <img className="object-cover h-48 w-full" src={image[0].url} alt={title} />
           </div>
-          <div className="p-5 pb-1">
+          <div className="p-4">
             <h1 className="text-2xl text-blue-500 font-bold leading-snug">
               {title}
             </h1>
+          </div>
+          <div className="p-4">
             <p className="text-base text-blue-900 mb-5 font-medium">
               {summary}
             </p>
