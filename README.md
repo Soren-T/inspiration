@@ -1,76 +1,31 @@
-# Airtable listing theme for Gatsby
+# Airtable CMS Gatsby BLlog
 
-### Gatsby starter theme integrated with [Airtable](https://airtable.com/)
+Live site is available at: https://friendly-blackwell-c2f315.netlify.app/
 
-## Demo
+## About
 
-Live demo is available at: https://gatsby-airtable-listing.netlify.com/
+My brother is a content writer for a large ad agency and has forever wanted to start a blog to write about a passion of his: DnD. I created this blog with Gatsby and Airtable as the CMS to help him achieve this goal. This gatsby site pulls data from two tables in Airtable, 'CMS' and 'Tags'. The CMS table holds all data for the articles themselves and the Tags table holds additional info for tagging and categorising the articles.
 
-## Screenshot
+### CMS Table
 
-![The home page](screenshot.png?raw=true)
+| title | slug                        | author | image     | tags                   | postMarkdown                     | date      | status             |
+|-------|-----------------------------|--------|-----------|------------------------|----------------------------------|-----------|--------------------|
+|       | unique slug for website url |        | image url | pulled from Tags table | blog content written in markdown | timestamp | published or draft |
 
-## Features
 
-- Integration with [Airtable](https://airtable.com/)
-- Item details displayed in a modal with navigation (previous / next)
-- Responsive/adaptive images via [gatsby-image](https://www.gatsbyjs.org/packages/gatsby-image/)
-- Uses utility-first [TailwindCSS](https://tailwindcss.com/) framework
-- Responsive design (desktop / mobile)
-- Generic newsletter form
-- Dark Mode support 🌙
+### Tags Table
 
-## 🚀 Getting started
+| tag | description |
+|-----|-------------|
+|     |             |
 
-Install [Node package manager (NPM)](https://nodejs.org/) (if you haven't already).
+### Running Locally
 
-### Get the source code and install dependencies.
+To run locally you need Gatsby and Gatsby CLI installed locally. You can get started on that here: https://www.gatsbyjs.com/docs/quick-start/
 
-```
-$ git clone git@github.com:wkocjan/gatsby-airtable-listing.git
-$ npm install
-```
+Once you have to repo cloned and Gatsby installed run the below commands to get started
 
-### Create Airtable base
-
-To use this project you have to have a Airtable account.
-
-Once you have it, go to [this base](https://airtable.com/shrlYuICEwEdAUir3) and click `Copy base` button located in the top right corner.
-
-Included columns:
-
-- `name` (single line text)
-- `slug` (single line text, should be unique)
-- `summary` (single line text)
-- `image` (attachment)
-- `descrition` (long text)
-- `country` (single select)
-- `tags` (multiple select)
-- `url` (single line text)
-
-### Set up Airtable API keys
-
-Copy included `.env.example` file to `.env` and fill it with your unique values:
-
-```
-AIRTABLE_API_KEY=""
-AIRTABLE_BASE_ID=""
-AIRTABLE_TABLE_NAME="Destinations"
-```
-
-You can find your API key and Base ID by clicking "Help" and then "API Documentation". Table name in the example is "Destinations" (case sensitive name).
-
-You're now ready to go. If you want to customize the Airtable base, please refer to [`gatsby-source-airtable` plugin documentation](https://www.gatsbyjs.org/packages/gatsby-source-airtable/).
-
-### Data update
-
-The data from Airtable **does not** update automatically, even when you're running the `develop` process.
-
-If you modified any data in your Airtable base, please be sure to restart the development process, so the new data can be downloaded.
-
-## Crucial Commands
-
-This project comes with a few handy commands for linting and code fixing. The most important ones are the ones to develop and ship code. You can find the most important commands below.
+Note: you will not be able to fetch data with the .env file containing the Airtable API keys.
 
 #### `gatsby develop`
 

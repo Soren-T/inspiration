@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby-plugin-modal-routing";
+import { Link } from "gatsby";
 
 export const Card = (props) => {
   const {

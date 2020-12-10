@@ -17,31 +17,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-modal-routing`,
-      options: {
-        // See http://reactcommunity.org/react-modal/#usage
-        modalProps: {
-          style: {
-            overlay: {
-              backgroundColor: `rgba(0, 0, 0, 0.5)`,
-            },
-            content: {
-              position: `absolute`,
-              border: `none`,
-              background: `none`,
-              padding: 0,
-              top: 0,
-              bottom: 0,
-              right: 0,
-              left: 0,
-              overflow: `auto`,
-              WebkitOverflowScrolling: `touch`,
-            },
-          },
-        },
-      },
-    },
-    {
       resolve: `gatsby-source-airtable`,
       options: {
         apiKey: process.env.AIRTABLE_API_KEY,
@@ -68,7 +43,7 @@ module.exports = {
         background_color: `#fff`,
         theme_color: `#4299e1`,
         display: `standalone`,
-        icon: `src/images/icon.png`,
+        icon: `src/images/d20.png`,
       },
     },
     {
