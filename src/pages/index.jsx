@@ -1,19 +1,21 @@
-import React from "react"
-import { graphql } from "gatsby"
-import { Cards, SiteMetadata } from "../components"
-import { Layout } from "../layouts/Layout"
+import React from "react";
+import { graphql } from "gatsby";
+import { Home, SiteMetadata } from "../components";
+import { Layout } from "../layouts/Layout";
 
 export default ({ data }) => {
-  const { edges: posts } = data.allAirtable;
+  const { edges: items } = data.allAirtable;
+  const flattened = items.map(p => p.node.data);
+  const cards = flattened.filter(i => i.slug);
+  const tags = flattened.filter(i => i.tag);
 
   return (
     <Layout>
       <SiteMetadata
-        title="Travel destinations"
-        description="Check the most popular travel destinations in Europe."
+        title="A DnD Blog"
+        description="DnD articles that will give you inspiration for you next adventure"
       />
-
-      <Cards nodes={posts} />
+      <Home cards={cards} tags={tags} />
     </Layout>
   )
 }
@@ -24,10 +26,13 @@ export const query = graphql`
       edges {
         node {
           data {
+            tag
+            ID
             slug
             title
             summary
             PostMarkdown
+            Tags
             date
             image {
               url
@@ -37,4 +42,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

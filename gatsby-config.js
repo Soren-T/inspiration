@@ -2,25 +2,20 @@ require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
-    links: {
-      contact: "mailto:sorenct04@gmail.com",
-      facebook: "https://www.facebook.com",
-      linkedin: "https://www.linkedin.com",
-      twitter: "https://www.twitter.com",
-    },
     locale: "en",
     title: "Gain Inspiration",
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
         postCssPlugins: [require("tailwindcss"), require("autoprefixer")],
       },
     },
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-modal-routing`,
       options: {
@@ -46,18 +41,6 @@ module.exports = {
         },
       },
     },
-    // {
-    //   resolve: "gatsby-transformer-remark",
-    //   options: {
-    //     plugins: [{
-    //       resolve: "gatsby-remark-component",
-    //       options: {
-    //         components: ["blog-post-template"],
-    //         verbose: true
-    //       }
-    //     }]
-    //   }
-    // },
     {
       resolve: `gatsby-source-airtable`,
       options: {
@@ -66,6 +49,11 @@ module.exports = {
           {
             baseId: process.env.AIRTABLE_BASE_ID,
             tableName: 'CMS',
+            queryName: ''
+          },
+          {
+            baseId: process.env.AIRTABLE_BASE_ID,
+            tableName: 'Tags',
             queryName: ''
           },
         ],

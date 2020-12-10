@@ -11,7 +11,11 @@ exports.createPages = async function ({ graphql, actions }) {
 
   await graphql(`
     {
-      allAirtable {
+      allAirtable(
+        filter: {
+          table: { eq: "CMS" }
+        }
+      ) {
         edges {
           node {
             data {
