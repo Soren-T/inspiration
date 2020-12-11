@@ -10,7 +10,6 @@ export const Home = ({ cards, tags }) => {
   const filterCards = useCallback(
     (activeTags) => {
       // if there are no tags don't try to filter
-      console.log(activeTags, cards, filteredCards);
       if (!activeTags.length) {
         // if the original array of cards and the filtered array
         // are the same length we can assume no update is needed
@@ -40,7 +39,7 @@ export const Home = ({ cards, tags }) => {
   );
 
   return (
-    <div className="container pt-6">
+    <div className="max-w-screen-lg container pt-6">
       <div className="flex flex-wrap -mx-3 xl:-mx-6">
         <Filter filterCards={filterCards} tags={tags} />
         <Cards cards={filteredCards} />
