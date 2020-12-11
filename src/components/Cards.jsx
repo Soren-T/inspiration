@@ -15,10 +15,16 @@ export const Cards = ({ cards }) => {
       <div className="flex flex-wrap -mx-3 xl:-mx-6">
         <div className="w-full sm:w-1/2 xl:w-1/3 px-3 xl:px-6 py-6">
           {empty ? (
-            <Card {...emptyState} />
+            <div className="w-full sm:w-1/2 xl:w-1/3 px-3 xl:px-6 py-6">
+              <Card {...emptyState} />
+            </div>
           ) : cards.map((card) => {
-            return (
-              <Card key={`card_${card.slug}`} {...card} />
+            return (              
+              <div 
+                key={`card_${card.slug}`}
+                className="w-full sm:w-1/2 xl:w-1/3 px-3 xl:px-6 py-6">
+                <Card {...card} />
+              </div>
             );
           })}
         </div>  
