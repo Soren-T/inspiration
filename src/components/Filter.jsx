@@ -26,7 +26,7 @@ export const Filter = ({ filterCards, tags }) => {
 
   return (
     <div className="container text-center">
-      <h3 className="text-lg lg:text-xl font-bold text-blue-500 tracking-tight pb-2">
+      <h3 className="text-lg lg:text-xl font-bold text-blue-600 tracking-tight pb-2">
         Select a tag to filter the articles below
       </h3>
       {(tags || []).map((t, i) => {
