@@ -12,7 +12,7 @@ export const Layout = ({ children, signup = true, share = false }) => {
               <img alt="Logo" src="/d20.png" />
             </Link>
           </div>
-          <h3 className="text-2xl lg:text-4xl font-bold text-blue-700 tracking-tight">
+          <h3 className="text-2xl lg:text-4xl font-bold text-blue-600 tracking-tight">
             Gain Inspiration - a DnD Blog
           </h3>
         </div>

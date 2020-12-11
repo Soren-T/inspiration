@@ -1,5 +1,3 @@
-const colors = require("tailwindcss/colors")
-
 module.exports = {
   purge: ["./src/**/*.jsx", "./src/**/*.js"],
   theme: {
@@ -9,20 +7,6 @@ module.exports = {
     },
     fontFamily: {
       sans: ["Roboto", "system-ui", "sans-serif"],
-    },
-    extend: {
-      colors: {
-        ...colors
-      },
-      fontSize: {
-        xxs: "0.625rem",
-      },
-      maxHeight: {
-        48: "12rem",
-        "80vh": "80vh",
-        "90vh": "90vh",
-        none: "none",
-      },
     },
   },
   variants: {},

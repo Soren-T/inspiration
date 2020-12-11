@@ -37,8 +37,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Travel Destinations`,
-        short_name: `Travel Destinations`,
+        name: `Gain Inspiraton`,
+        short_name: `Gain Inspiraton`,
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#4299e1`,
