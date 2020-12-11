@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import 'tailwindcss/colors';
+
 export const Filter = ({ filterCards, tags }) => {
   const [activeTags, setActiveTags] = useState([]);
 
