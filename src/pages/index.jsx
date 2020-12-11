@@ -8,10 +8,11 @@ import "../styles/index.scss";
 import "../styles/tailwind.css";
 
 export default ({ data }) => {
-  const { edges: items } = data.allAirtable;
-  const flattened = items.map(p => p.node.data);
-  const cards = flattened.filter(i => i.slug);
-  const tags = flattened.filter(i => i.tag);
+  const { edges: a } = data.articles;
+  const cards = a.map(i => i.node.data);
+
+  const { edges: b } = data.tags;
+  const tags = b.map(i => i.node.data);
 
   return (
     <Layout>
@@ -26,21 +27,39 @@ export default ({ data }) => {
 
 export const query = graphql`
   query contentQuery {
-    allAirtable {
+    articles: allAirtable (
+      filter: {
+        table: { eq: "CMS" }
+        data: { status: { eq: "Published" } }
+      }
+    ) {
       edges {
         node {
           data {
-            tag
-            ID
             slug
             title
             summary
             PostMarkdown
             tag__from_Tags_
             date
+            status
             image {
               url
             }
+          }
+        }
+      }
+    }
+    tags: allAirtable (
+      filter: {
+        table: { eq: "Tags" }
+      }
+    ) {
+      edges {
+        node {
+          data {
+            tag
+            ID
           }
         }
       }

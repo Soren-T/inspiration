@@ -30,7 +30,7 @@ export const Filter = ({ filterCards, tags }) => {
         Select a tag to filter the articles below
       </h3>
       {(tags || []).map((t, i) => {
-        const colorIndex = i > colors.length - 1 ? i % colors.length - 1 : i;
+        const colorIndex = i > (colors.length - 1) ? i % (colors.length - 1) : i;
         const color = colors[colorIndex];
         const active = activeTags.indexOf(t.tag) !== -1;
         return (

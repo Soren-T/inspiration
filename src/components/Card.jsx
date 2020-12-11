@@ -14,7 +14,7 @@ export const Card = (props) => {
       <Link to={`/${slug}`}>
         <div className="divide-y divide-gray-200 divide-solid">
           <div className="bg-blue-300">
-            <img className="object-cover h-48 w-full" src={image[0].url} alt={title} />
+            <img className="object-cover h-60 w-full" src={image[0].url} alt={title} />
           </div>
           <div className="p-4">
             <h1 className="text-2xl text-blue-500 font-bold leading-snug">
