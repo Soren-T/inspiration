@@ -1,5 +1,9 @@
 @tailwind base;
 
+@tailwind components;
+
+@tailwind utilities;
+
 body {
   @apply font-sans antialiased;
 }
@@ -7,10 +11,6 @@ body {
 body.ReactModal__Body--open > div[aria-hidden="true"] {
   filter: blur(10px);
 }
-
-@tailwind components;
-
-@tailwind utilities;
 
 .grayscale-1 {
   filter: grayscale(1);

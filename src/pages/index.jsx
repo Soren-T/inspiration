@@ -3,6 +3,10 @@ import { graphql } from "gatsby";
 import { Home, SiteMetadata } from "../components";
 import { Layout } from "../layouts/Layout";
 
+import "typeface-roboto";
+import "../styles/index.scss";
+import "../styles/tailwind.css";
+
 export default ({ data }) => {
   const { edges: items } = data.allAirtable;
   const flattened = items.map(p => p.node.data);
