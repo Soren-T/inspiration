@@ -25,15 +25,22 @@ exports.createPages = async function ({ graphql, actions }) {
         }
       }
     }        
-  `).then(({  data }) => {    
-    data.allAirtable.edges.forEach(edge => {
-      const { data: { slug } } = edge.node;
-      createPage({
-        path: `${slug}`,
-        component,
-        context: { slug }
+  `).then((result) => {
+    if (result.errors) {
+      // handle errors???
+      throw result.errors
+    }
+    const posts = result.data.allAirtable.edges;
+    if (posts.length) {
+      posts.forEach(edge => {
+        const { data: { slug } } = edge.node;
+        createPage({
+          component,
+          path: `${slug}`,
+          context: { slug }
+        });
       });
-    });
+    }
   });
 }
 

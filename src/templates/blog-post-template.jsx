@@ -53,7 +53,7 @@ const Template = (props) => {
 export default Template;
 
 export const query = graphql`
-  query BlogPostByPath($slug: String!) {
+  query BlogPostByPath($slug: String) {
     airtable(
       data: {
         slug: { eq: $slug }
