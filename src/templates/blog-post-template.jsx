@@ -5,7 +5,7 @@ import { Remarkable } from "remarkable";
 import { SiteMetadata } from "../components";
 import { Layout } from "../layouts/Layout";
 
-export default (props) => {
+const Template = (props) => {
   const {
     airtable: { 
       data: {
@@ -49,6 +49,8 @@ export default (props) => {
     </Layout>
   )
 }
+
+export default Template;
 
 export const query = graphql`
   query BlogPostByPath($slug: String!) {

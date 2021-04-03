@@ -7,7 +7,7 @@ import "typeface-roboto";
 import "../styles/index.scss";
 import "../styles/tailwind.css";
 
-export default ({ data }) => {
+const AppLayout = ({ data }) => {
   const { edges: a } = data.articles;
   const cards = a.map(i => i.node.data);
 
@@ -24,6 +24,8 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export default AppLayout;
 
 export const query = graphql`
   query contentQuery {

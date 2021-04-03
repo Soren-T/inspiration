@@ -6,7 +6,7 @@ import "typeface-roboto";
 import "../styles/index.scss";
 import "../styles/tailwind.css";
 
-export default () => {
+const Lost = () => {
   return (
     <div className="flex min-h-screen items-center">
       <SiteMetadata title="Error 404" description="Page not found" />
@@ -26,3 +26,5 @@ export default () => {
     </div>
   )
 }
+
+export default Lost;
